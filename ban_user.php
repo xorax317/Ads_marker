@@ -1,0 +1,14 @@
+<?php
+require 'functions.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $userId = $_POST['user_id'];
+    $reason = $_POST['reason'];
+
+    if (banUser($userId, $reason)) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false]);
+    }
+}
+?>
